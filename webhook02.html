@@ -14,7 +14,7 @@
         }
         .form-group {
             margin-bottom: 15px;
-            text-align: left; /* Left-align labels */
+            text-align: left;
         }
         label {
             font-weight: bold;
@@ -26,12 +26,12 @@
             padding: 8px;
             margin-top: 5px;
             box-sizing: border-box;
-            border-radius: 8px; /* Rounded corners */
-            background-color: #f2f2f2; /* Light gray background */
+            border-radius: 8px;
+            background-color: #f2f2f2;
         }
         textarea {
-            resize: vertical; /* Allow vertical resizing only */
-            max-height: 150px; /* Fixed width, scrollable if overflow */
+            resize: vertical;
+            max-height: 150px;
             overflow-y: auto;
         }
         .cost {
@@ -45,16 +45,16 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            background-color: #1E75D4; /* Button color */
-            color: white; /* White text */
+            background-color: #1E75D4;
+            color: white;
             border: none;
-            border-radius: 8px; /* Rounded corners */
+            border-radius: 8px;
             text-align: center;
             margin: auto;
         }
         .submit-btn:hover {
-            background-color: black; /* Hover color */
-            color: white; /* White text on hover */
+            background-color: black;
+            color: white;
         }
         #stripeButton {
             display: none;
@@ -161,14 +161,11 @@
         // Log form data to ensure it's being prepared correctly
         console.log("Form Data to Send:", formData);
 
-        // Send data to the webhook with headers
+        // Send data to the webhook with a direct POST request
         fetch('https://hooks.zapier.com/hooks/catch/13785444/2r1585r/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'POST',
-                'Access-Control-Allow-Headers': 'Content-Type'
             },
             body: JSON.stringify(formData)
         })
